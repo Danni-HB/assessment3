@@ -2,11 +2,11 @@ window.addEventListener("load", function(){
     //google**************************************************************************************************************************
 	document.getElementById("sing-in-google").addEventListener("click", function(){
 	var provider = new firebase.auth.GoogleAuthProvider();
-	provider.addScope('account_email');
+	provider.addScope('email');
 	firebase.auth().signInWithPopup(provider)
 	.then(function(result){
 		console.log("Logging sucessfully", result.user);
-
+    window.location.href = 'home.html';
 	})
 	.catch(function(error){
 		console.log("Logging fail", error)
@@ -16,7 +16,6 @@ window.addEventListener("load", function(){
     //Email****************************************************************************************************************************
 
 	this.document.getElementById("sing-in-email").addEventListener("click", function (){
-		alert("loggin with email and pass");
 	});
 	
     document.getElementById("sing-in-email").addEventListener("click", function(){
@@ -30,7 +29,7 @@ window.addEventListener("load", function(){
     // Signed in 
     var user = userCredential.user;
     // ...
-    console.log('Logging Sucessfully');
+    window.location.href = 'home.html';
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -62,6 +61,7 @@ window.addEventListener("load", function(){
     confirmationResult.confirm(code).then((result) => {
     // User signed in successfully.
     const user = result.user;
+    window.location.href = 'home.html';
     // ...
 }).catch((error) => {
   // User couldn't sign in (bad verification code?)
@@ -75,14 +75,6 @@ window.addEventListener("load", function(){
     });
 
     });
-
-    //Facebook******************************************************************
-
-    document.getElementById("sing-in-facebook").addEventListener("click", function(){
-
-        
-
-    })
 
 
 });
